@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    counterValue: 0,
+  };
+  handleClick() {
+     const newCounterValue = this.state.counterValue + 1;
+     this.setState({counterValue: newCounterValue});
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h3>{this.state.counterValue}</h3>
+        <button onClick={() => this.handleClick()}>click me</button>
       </div>
     );
   }
